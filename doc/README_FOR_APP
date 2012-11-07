@@ -1,0 +1,24 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+* Uses sqlite3 for Development purposes
+- git clone repo
+- bundle install
+-- Paperclip pre 3.0 message can be disregarded as this is a new install for this app (not an upgrade)
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+
+- launch application
+-- ruby script/rails server -p 3000 -e development
+
+
+*** launch with Mongrel
+*** There is a known issue with WEBrick not accepting authentication callback
+
+@ OpenID example urls
+- Google: https://www.google.com/accounts/o8/id
+- Yahoo: yahoo.com
+- AOL: openid.aol.com
+
+The current authentication process will only allow a single OpendID per user.
