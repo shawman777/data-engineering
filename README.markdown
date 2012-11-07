@@ -1,43 +1,70 @@
-# Challenge for Software Engineer - Big Data 
-To better assess a candidates development skills, we would like to provide the following challenge.  You have as much time as you'd like (though we ask that you not spend more than a few hours).
+# Data-Engineering Overview by *shawman777*
 
-There are three jobs that both use this challenge:
+This is a simple Rails application that authenticates users with *OpenID*. After a userhas been authenticated, they are
+able upload a file according to a predefined format. After the file has been successfully uploaded it is then imported
+into the database. The total amount of purchases they were imported are then displayed with the file information.
 
-1. Senior Software Engineer: If you are applying to this position, the email address you should use for submission is [dev.challenges@livingsocial.com](dev.challenges@livingsocial.com).  You must use either Ruby/Ruby on Rails or Scala/Play2.0.
-1. Senior Software Engineer, Big Data (and/or Data Scientist): If you are applying to this position, the email address you should use for submission is [data.challenge@livingsocial.com](mailto:data.challenge@livingsocial.com).  You may use any programming language or framework you'd like.
 
-Feel free to email the appropriate address above if you have any questions.
+## What is used
 
-## Submission Instructions
-1. First, fork this project on github.  You will need to create an account if you don't already have one.
-1. Next, complete the project as described below within your fork.
-1. Finally, push all of your changes to your fork on github and submit a pull request.  You should also email the appropriate address listed in the first section and your recruiter to let them know you have submitted a solution.  Make sure to include your github username in your email (so we can match people with pull requests).
+* Ruby 1.9.2
+* DB: Sqlite3
+* Dev Server: Mongrel (works)
+** (WEBrick breaks OpenID authentication)
 
-## Alternate Submission Instructions (if you don't want to publicize completing the challenge)
-1. Clone the repository
-1. Next, complete your project as described below within your local repository
-1. Email a patch file to the appropriate address listed above ([data.challenge@livingsocial.com](mailto:data.challenge@livingsocial.com) if you are applying for the Big Data position, [dev.challenges@livingsocial.com](dev.challenges@livingsocial.com) if you are applying for the general Senior Software Engineer or Associate Developer position).
+# Gems installed with bundle
 
-## Project Description
-Imagine that LivingSocial has just acquired a new company.  Unfortunately, the company has never stored their data in a database and instead uses a plain text file.  We need to create a way for the new subsidiary to import their data into a database.  Your task is to create a web interface that accepts file uploads, normalizes the data, and then stores it in a relational database.
+* rails 3.2.6
+* sqlite3
+* jquery-rails
+* jquery-fileupload-rails
+* paperclip
+* omniauth-openid
 
-Here's what your web-based application must do:
 
-1. Your app must accept (via a form) a tab delimited file with the following columns: purchaser name, item description, item price, purchase count, merchant address, and merchant name.  You can assume the columns will always be in that order, that there will always be data in each column, and that there will always be a header line.  An example input file named example_input.tab is included in this repo.
-1. Your app must parse the given file, normalize the data, and store the information in a relational database.
-1. After upload, your application should display the total amount gross revenue represented by the uploaded file.
+## Installation Steps
 
-Your application does not need to:
+* Uses sqlite3 for Development purposes
+* git clone repo
+* bundle install
+* bundle exec rake db:create
+* bundle exec rake db:migrate
 
-1. handle authentication or authorization (bonus points if it does, extra bonus points if authentication is via OpenID)
-1. be written with any particular language or framework
-1. be aesthetically pleasing
+## Application Launch specifics
 
-Your application should be easy to set up and should run on either Linux or Mac OS X.  It should not require any for-pay software.
+* ruby script/rails server mongrel -p 3000 -e development
+** There is a known issue with WEBrick not accepting authentication callback
 
-## Evaluation
-Evaluation of your submission will be based on the following criteria. Additionally, reviewers will attempt to assess your familiarity with standard libraries. If your code submission is in Ruby, reviewers will attempt to assess your experience with object-oriented programming based on how you've structured your submission.
+## OpenID example urls
 
-1. Did your application fulfill the basic requirements?
-1. Did you document the method for setting up and running your application?
-1. Did you follow the instructions for submission?
+- Google: https://www.google.com/accounts/o8/id
+- Yahoo: yahoo.com
+- AOL: openid.aol.com
+
+The current authentication process will only allow a single OpendID per user.
+
+
+# Upload files with jQuery File Upload and Paperclip
+
+This is an example app that uses the following gems to upload files for your Rails application:
+
+# Credits
+* Tors Dalid - Example application which is the basis of this solution
+* Tors Dalid - "jquery-fileupload-rails" gem
+* Sebastian Tschan for writing an awesome file upload plugin.
+* thoughtbot, inc for the paperclip gem
+* Erik Michaels-Ober for omniauth-openid gem
+
+
+## License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
