@@ -1,8 +1,8 @@
 # Data-Engineering Overview by *shawman777*
 
-This is a simple Rails application that authenticates users with *OpenID*. After a userhas been authenticated, they are
+This is a simple Rails application that authenticates users with *OpenID*. After a user has been authenticated, they are
 able upload a file according to a predefined format. After the file has been successfully uploaded it is then imported
-into the database. The total amount of purchases they were imported are then displayed with the file information.
+into a database. The total amount of purchases they were imported are then displayed along with some file information.
 
 
 ## What is used
@@ -10,9 +10,9 @@ into the database. The total amount of purchases they were imported are then dis
 * Ruby 1.9.2
 * DB: Sqlite3
 * Dev Server: Mongrel (works)
-** (WEBrick breaks OpenID authentication)
+  (WEBrick breaks OpenID authentication)
 
-# Gems installed with bundle
+## Gems installed with bundle
 
 * rails 3.2.6
 * sqlite3
@@ -24,8 +24,7 @@ into the database. The total amount of purchases they were imported are then dis
 
 ## Installation Steps
 
-* Uses sqlite3 for Development purposes
-* git clone repo
+* git clone https://github.com/shawman777/data-engineering.git
 * bundle install
 * bundle exec rake db:create
 * bundle exec rake db:migrate
@@ -33,22 +32,19 @@ into the database. The total amount of purchases they were imported are then dis
 ## Application Launch specifics
 
 * ruby script/rails server mongrel -p 3000 -e development
-** There is a known issue with WEBrick not accepting authentication callback
+  _There is a known issue with WEBrick not accepting authentication callback_
 
 ## OpenID example urls
 
-- Google: https://www.google.com/accounts/o8/id
-- Yahoo: yahoo.com
-- AOL: openid.aol.com
+- Google: **https://www.google.com/accounts/o8/id**
+- Yahoo: **yahoo.com**
+- AOL: **openid.aol.com**
 
 The current authentication process will only allow a single OpendID per user.
 
 
-# Upload files with jQuery File Upload and Paperclip
+## Credits
 
-This is an example app that uses the following gems to upload files for your Rails application:
-
-# Credits
 * Tors Dalid - Example application which is the basis of this solution
 * Tors Dalid - "jquery-fileupload-rails" gem
 * Sebastian Tschan for writing an awesome file upload plugin.
