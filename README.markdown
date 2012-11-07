@@ -13,7 +13,7 @@ into a database. The total amount of purchases they were imported are then displ
 
   (WEBrick breaks OpenID authentication)
 
-## Gems installed with bundle
+## Gems Installed with Bundle
 
 * rails 3.2.6
 * sqlite3
@@ -25,21 +25,26 @@ into a database. The total amount of purchases they were imported are then displ
 
 ## Installation Steps
 
-* git clone https://github.com/shawman777/data-engineering.git
-* bundle install
-* bundle exec rake db:create
-* bundle exec rake db:migrate
+1. git clone https://github.com/shawman777/data-engineering.git
+1. bundle install
+1. bundle exec rake db:create
+1. bundle exec rake db:migrate
 
-## Application Launch specifics
+## Application Launch Specifics
 
 * ruby script/rails server mongrel -p 3000 -e development
 
   _There is a known issue with WEBrick not accepting authentication callback_
 
-* Open http://localhost:3000 in a browser
+## Running Application
+1. Open http://localhost:3000 in a browser
+1. Click link to sign in with an OpenID login (example URLs below)
+1. Allow access after loggin in
+1. Upload file(s)
+1. View results
 
 
-## OpenID example urls
+## OpenID Example URLs
 
 - Google: **https://www.google.com/accounts/o8/id**
 - Yahoo: **yahoo.com**
