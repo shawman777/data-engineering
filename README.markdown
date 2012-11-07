@@ -36,6 +36,9 @@ into a database. The total amount of purchases they were imported are then displ
 
   _There is a known issue with WEBrick not accepting authentication callback_
 
+* Open http://localhost:3000 in a browser
+
+
 ## OpenID example urls
 
 - Google: **https://www.google.com/accounts/o8/id**
