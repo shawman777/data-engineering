@@ -10,6 +10,7 @@ into a database. The total amount of purchases they were imported are then displ
 * Ruby 1.9.2
 * DB: Sqlite3
 * Dev Server: Mongrel (works)
+
   (WEBrick breaks OpenID authentication)
 
 ## Gems installed with bundle
@@ -32,6 +33,7 @@ into a database. The total amount of purchases they were imported are then displ
 ## Application Launch specifics
 
 * ruby script/rails server mongrel -p 3000 -e development
+
   _There is a known issue with WEBrick not accepting authentication callback_
 
 ## OpenID example urls
